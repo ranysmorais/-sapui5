@@ -1,0 +1,52 @@
+<mvc:View
+
+   controllerName="sap.ui.demo.walkthrough.controller.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">   
+   <Input
+      value="{/recipient/name}"
+      description="Name {/recipient/name}"
+      valueLiveUpdate="true"
+      width="40%"/>
+      <Input
+      value="{/recipient/age}"
+      description="Number {/recipient/age}"
+      valueLiveUpdate="true"
+      width="40%"/>
+      <Input
+      value="{/recipient/street}"
+      description="Street {/recipient/street}"
+      valueLiveUpdate="true"
+      width="40%"/>
+      <Input
+      value="{/recipient/disctrict}"
+      description="Disctrict {/recipient/disctrict}"
+      valueLiveUpdate="true"
+      width="40%"/>
+      <Input
+      value="{/recipient/city}"
+      description="City {/recipient/city}"
+      valueLiveUpdate="true"
+      width="40%"/>
+      <Input
+      value="{/recipient/state}"
+      description="State {/recipient/state}"
+      valueLiveUpdate="true"
+      width="40%"/>
+
+      <Button
+      text="Save"
+      press=".onShowHello"
+      width="65%"/>
+      <Input
+      value="{/recipient/search}"
+      description=" {/recipient/search}"
+      valueLiveUpdate="true"
+      width="79%"/>
+
+      <Button
+      text="Search"
+      press=".onShowHello"
+      width="39%"/>
+
+   </mvc:View>
