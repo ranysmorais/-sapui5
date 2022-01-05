@@ -19,9 +19,10 @@ sap.ui.define([
             //set data model
             var oData = {
                 recipient : {
-                    name:"Nome"
+                    
                 }
             };
+            
 
             var oModel = new JSONModel(oData);
             this.setModel(oModel);
@@ -30,7 +31,7 @@ sap.ui.define([
             var i18nModel = new ResourceModel({
                 bundleName : "sap.ui.demo.walkthrough.i18n.i18n"
             });
-        }
+        }        
     })
 }
 )

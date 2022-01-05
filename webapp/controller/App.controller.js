@@ -1,20 +1,22 @@
+
 sap.ui.define([
    "sap/ui/core/mvc/Controller",
    "sap/m/MessageToast",
    "sap/ui/model/json/JSONModel",
-   "sap/ui/model/resource/ResourceModel"
-], function (Controller, MessageToast, JSONModel, ResourceModel) {
+   "sap/ui/model/resource/ResourceModel",
+   "sap/ui/core/Fragment",
+   
+], function (Controller, MessageToast, JSONModel, ResourceModel, Fragment) {
    "use strict";
    return Controller.extend("sap.ui.demo.walkthrough.controller.App", {
      onInit : function () {
          // set data model on view
          var oData = {
             recipient : {
-               name : " ",
-               phone:" ",
-               street: " ",               
-               city: " "
-               
+               name : "",
+               phone:"",
+               address: "",
+               city: ""
             }
          };
          var oModel = new JSONModel(oData);
@@ -40,6 +42,19 @@ sap.ui.define([
          // show message
          MessageToast.show(sMsg);
          console.log(sMsg);
-      }
+      },
+      onOpenDialog: function(){
+         if(!this.pDialog){
+            this.pDialog = this.loadFragment({
+               name: "sap.ui.demo.walkthrough.view.HelloDialog"
+            });
+         }
+         this.pDialog.then(function(oDialog){
+            oDialog.open();
+         })
+      },
+      onCloseDialog : function (){
+         this.byId("helloDialog").close();
+      }      
    });
 });

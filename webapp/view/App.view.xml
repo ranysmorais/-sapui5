@@ -4,47 +4,62 @@
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc"
    displayBlock="true">
-   <App>
-      <pages>
-         <Page title="{i18n>ContactBookApplication}">
-            <content>
-            <Input
-            width="30%"/>
-            <Button
-            text="{i18n>FindContact}"/>
-               <Panel
-               headerText="{i18n>Contacts}">
-                  <content>                     
-                     <Input
-                     value="{/recipient/name}"
-                     description="Name"
-                     width="50%"/>
-                     <Input
-                     value="{/recipient/phone}"
-                     description="Phone Number"
-                     width="50%"/>
-                     <Input
-                     value="{/recipient/address}"
-                     description="address"
-                     width="50%"/>                     
-                     <Input
-                     value="{/recipient/city}"
-                     description="City"
-                     width="50%"/>                 
-                   </content>                   
-                </Panel>
-                <Button
-                     text="{i18n>Save}"
-                     press="onShowHello"
-                     width="25%"/>
-                 <Button
-                 text="{i18n>Cancel}"
-                 press="onShowHello"
-                 width="25%"/>  
-             </content>
-          </Page>
-       </pages>
-    </App>
+   <Shell>
+      <App class="myAppDemoWT">
+         <pages>
+            <Page title="{i18n>TitlePage}">
+               <content>                                       
+                  <Input
+                     width="auto"/>                     
+                     <Button
+                        text="Teste"
+                        press="onShowHello"
+                        
+                        />
+                           <Panel
+                              headerText="{i18n>SubTitle}"
+                              class="sapUiResponsiveMargin"
+                              width="auto"
+                           >
+                                 <content>                                 
 
+                                     <Input
+                                     value="{/recipient/name}"
+                                     description="Name"
+                                     width="50%"
+                                     class="sapUiSmallMargin"                                    
+                                      />                                                                      
+                                     <Input
+                                     value="{/recipient/phone}"
+                                     description="Phone"
+                                     width="50%"
+                                     class="sapUiSmallMargin"
+                                      />
+                                     <Input
+                                     value="{/recipient/address}"
+                                     description="Address"
+                                     width="50%"
+                                     class="sapUiSmallMargin"
+                                      />                   
+                                     <Input
+                                     value="{/recipient/city}"
+                                     description="City"         
+                                     width="50%"                                           
+                                     class="sapUiSmallMargin"
+                                      />  
+                                 </content>               
+                           </Panel>  
+                     <Button
+                     id="helloDialogButton"
+                     text="{i18n>openDialogButtonText}"
+                     press="onOpenDialog"
+                     class="sapUiSmallMargin"
+                     width="20%"/>  
+                          
+               </content>
+             </Page>
+          </pages>
+       </App>
+   </Shell>
 
-   </mvc:View>
+</mvc:View>
