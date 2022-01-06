@@ -13,7 +13,7 @@
                      width="auto"/>                     
                      <Button
                         text="Teste"
-                        press="onShowHello"
+                        press="obterContatos"
                         
                         />
                            <Panel
