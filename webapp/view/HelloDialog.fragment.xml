@@ -14,19 +14,19 @@
     
 
     <FormattedText
-	htmlText="Name: {/recipient2/data[0].name}"   
+	htmlText="Name: {/recipient/msgName}"   
 	class="sapUiSmallMargin"/>
 
     <FormattedText
-	htmlText="Phone: {/recipient2/phone}"   
+	htmlText="Phone: {/recipient/phone}"   
 	class="sapUiSmallMargin"/>
 
     <FormattedText
-	htmlText="Address: {/recipient2/address}"   
+	htmlText="Address: {/recipient/address}"   
 	class="sapUiSmallMargin"/>
 
     <FormattedText
-	htmlText="City: {/recipient2/city}"   
+	htmlText="City: {/recipient/city}"   
 	class="sapUiSmallMargin"/>
     
 </Dialog>    

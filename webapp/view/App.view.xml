@@ -13,8 +13,7 @@
                      width="auto"/>                     
                      <Button
                         text="Teste"
-                        press="obterContatos"
-                        
+                        press="obterContatos"                        
                         />
                            <Panel
                               headerText="{i18n>SubTitle}"
@@ -46,13 +45,22 @@
                                      description="City"         
                                      width="50%"                                           
                                      class="sapUiSmallMargin"
-                                      />  
+                                      /> 
+                                    <List id="companyList" items="{path:'/recipient', templateShareable:false}"> 
+                                       <items>
+                                          <StandardListItem
+                                             title = "name"
+                                             description = "city"
+                                             
+                                             />
+                                       </items>
+                                    </List>
                                  </content>               
                            </Panel>  
                      <Button
                      id="helloDialogButton"
                      text="{i18n>openDialogButtonText}"
-                     press="onOpenDialog"
+                     press="saveContact"
                      class="sapUiSmallMargin"
                      width="20%"/>  
                           

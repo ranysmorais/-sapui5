@@ -66,14 +66,19 @@ sap.ui.define([
             contentType: "application/json",
             url: sUrl,
             datatype: "json",
-            success: function (data, textStatus, jqXHR) {                         
-               
-               var sMsg = "Name: " + data[2].name+"\n"+
-                          "Phone: " + data[2].phone+"\n"+
-                          "address: " + data[2].street+"\n"+
-                          "City: " + data[2].disctrict
+            success: function (data, textStatus, jqXHR) {
+
+               for (var i = 0; i < data.length; i++) {
+                  var sMsg = "Name: " + data[i].name + "\n" +
+                     "Phone: " + data[i].phone + "\n" +
+                     "address: " + data[i].street + "\n" +
+                     "City: " + data[i].city
+
+                    
+               }
 
                MessageToast.show(sMsg);
+
 
             },
             error: function (data, textStatus, jqXHR) {
@@ -82,7 +87,26 @@ sap.ui.define([
             }
          });
 
-      }
+      },
+      saveContact: function () {        
+         var name = this.getView().getModel().getProperty("/recipient/name");
+         var street = this.getView().getModel().getProperty("/recipient/address");
+         var city = this.getView().getModel().getProperty("/recipient/city");
+         var phone = this.getView().getModel().getProperty("/recipient/phone");
 
+         var sUrl = "https://localhost:44339/v1/contacts"
+         var data ={"name":name,"phone":phone,"street":street,"city":city};
+         $.ajax({             
+            url: sUrl,
+            dataType: "json", 
+            type: "POST",                    
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function(data, textStatus, xhr){    
+               alert("Sucess");
+                console.log("sukses: "+data+" "+JSON.stringify(xhr));
+            }
+        }); 
+      }
    });
 });

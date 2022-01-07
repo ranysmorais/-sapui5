@@ -16,7 +16,37 @@ sap.ui.define([
         init : function () {
             //call the init function of the parent
             UIComponent.prototype.init.apply(this, arguments);
-            //set data model
+            //set data 
+            var sUrl = "https://localhost:44339/v1/contacts"
+         var that = this;
+
+         $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: sUrl,
+            datatype: "json",
+            success: function (data, textStatus, jqXHR) {
+
+               for (var i = 0; i < data.length; i++) {
+                  var sMsg = "Name: " + data[i].name + "\n" +
+                     "Phone: " + data[i].phone + "\n" +
+                     "address: " + data[i].street + "\n" +
+                     "City: " + data[i].city
+
+                    
+               }
+
+               MessageToast.show(sMsg);
+
+
+            },
+            error: function (data, textStatus, jqXHR) {
+               //Caso ocorra um erro ao solicitar dados a função error será chamada                    
+               console.log(textStatus);
+            }
+         });
+
+
             var oData = {
                 recipient : {
                     
