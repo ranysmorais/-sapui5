@@ -10,18 +10,18 @@
             <Page title="{i18n>TitlePage}">
                <content>                                       
                   <Input
+                  value="{/recipient/find}"
                      width="auto"/>                     
                      <Button
-                        text="Teste"
-                        press="obterContatos"                        
+                        text="Search"
+                        press="findByPhone"                        
                         />
                            <Panel
                               headerText="{i18n>SubTitle}"
                               class="sapUiResponsiveMargin"
                               width="auto"
                            >
-                                 <content>                                 
-
+                                 <content>   
                                      <Input
                                      value="{/recipient/name}"
                                      description="Name"

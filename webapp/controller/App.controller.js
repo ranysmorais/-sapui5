@@ -58,7 +58,7 @@ sap.ui.define([
 
 
       obterContatos: function () {
-         var sUrl = "https://localhost:44339/v1/contacts"
+         var sUrl = "https://localhost:44339/v1/contacts";
          var that = this;
 
          $.ajax({
@@ -74,7 +74,7 @@ sap.ui.define([
                      "address: " + data[i].street + "\n" +
                      "City: " + data[i].city
 
-                    
+
                }
 
                MessageToast.show(sMsg);
@@ -88,25 +88,61 @@ sap.ui.define([
          });
 
       },
-      saveContact: function () {        
+      saveContact: function () {
          var name = this.getView().getModel().getProperty("/recipient/name");
          var street = this.getView().getModel().getProperty("/recipient/address");
          var city = this.getView().getModel().getProperty("/recipient/city");
          var phone = this.getView().getModel().getProperty("/recipient/phone");
 
-         var sUrl = "https://localhost:44339/v1/contacts"
-         var data ={"name":name,"phone":phone,"street":street,"city":city};
-         $.ajax({             
+         var sUrl = "https://localhost:44339/v1/contacts";
+
+         var data = { "name": name, "phone": phone, "street": street, "city": city };
+         $.ajax({
             url: sUrl,
-            dataType: "json", 
-            type: "POST",                    
+            dataType: "json",
+            type: "POST",
             contentType: 'application/json',
             data: JSON.stringify(data),
-            success: function(data, textStatus, xhr){    
+            success: function (data, textStatus, xhr) {
                alert("Sucess");
-                console.log("sukses: "+data+" "+JSON.stringify(xhr));
+               console.log("sukses: " + data + " " + JSON.stringify(xhr));
             }
-        }); 
+         });
+      },
+      deleteContact: function () {
+         var phone = this.getView().getModel().getProperty("/recipient/find");
+         
+         var sUrl = `https://localhost:44339/v1/contacts/${phone}`;
+
+         $.ajax({
+            url: sUrl,
+            type: "DELETE",            
+            contentType: "application/json",
+            dataType: "text",
+            sucess: function (data, textStatus, jqXHR) {
+               alert("DELETE: Sucess");
+            },
+            error: function (data, textStatus, jqXHR) {
+               //Caso ocorra um erro ao solicitar dados a função error será chamada                    
+               console.log(textStatus);
+            }
+         });
+      },
+      findByPhone: function () {
+         var phone = this.getView().getModel().getProperty("/recipient/find");
+         console.log(phone);
+         var sUrl = `https://localhost:44339/v1/contacts/get-contact/${phone}`;
+         $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: sUrl,
+            datatype: "json",
+            success: function (data, textStatus, xhr) {
+               alert("Sucess");
+               console.log("sukses: " + data + " " + JSON.stringify(xhr));
+            }
+         });
+
       }
    });
 });
